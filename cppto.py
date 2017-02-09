@@ -35,11 +35,11 @@ def main(argv): #main with input
             outfile = arg #take in it argument
     isfile = open(infile, 'r') 
     strs = [] #"" for line in isfile]
+    pattern = " +"
     for line in isfile:
         #print(line)
-        strs.append(line)
+        print(line.split())
     #print(strs)
-    print(len(argv))
         #get and parse the line into tokens
 
 
