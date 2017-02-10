@@ -5,4 +5,4 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 cppto.py	cppto.py	1;"	kind:file	line:1
-main	cppto.py	/^def main(argv):$/;"	kind:function	line:13
+main	cppto.py	/^def main(argv):                                         #main with input $/;"	kind:function	line:14

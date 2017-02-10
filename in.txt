@@ -1,37 +1,11 @@
-        #if letter A-z
-            #if space after, assignment
-                 # if x = 1;
-                    #then x = 1
-            #if letters after
-                #if space after
-                    #if letter after, variable dec
-                        # if int x = 1;
-                            #x = 1
-                    #if << or >> after, i/o
-                        # if cout << x;
-                            #print x, (comma for not endl)
-                        # if cin >> x;
-                            #x = input("Enter two integers ")
-                #if () after
-                    #if { after, blocks
-                        # if blocks ('{' and '}' on separate lines)
-                            #something
-                        # if int main(){}
-                            #def main():
-                        # if if(){}
-                            #if :
-                        # if while(){}
-                            #while :
-                    #if nothing after, function
-                        # if if(){}
-                            #if :
-                        # if while(){}
-                            #while :
+#include <iostream>
+#include <string>
 
-        #elif symbol / or #
-            #if / after, comment
-                # if line = //
-                    ##
-            #if include after, 
-                # if line = #include || using
-                    #ignore
+int main() {
+	std::cout << "Hello, World!\n";
+	int x = 1, y = 2;
+	std::cout << "x + y = " << x+y << "\n";
+	std::string byemessage = "Goodbye!";
+	std::cout << byemessage << "\n";
+	return 0;
+}

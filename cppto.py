@@ -7,12 +7,14 @@
 
 #You may design your program to quit if the number of arguments is incorrect or
 # prompt the user for the missing file names.
+import sys
+import getopt
+import re                                  #import argv, exit, parser, and regular expressions
 
-import sys, getopt, re                                  #import argv, exit, parser, and regular expressions
-
-tokens = [ 'A-z', 'include', 'using', 'main', 'if', 'else', 'do', 'while', 'for', 'cout', 'cin', '0-9', ' ', ';', '+', '-', '*', '/', '=', '<', '>', '(', ')', '{', '}', '[', ']', '#' ]
+#TOKENS = ['include', 'using', 'main', 'if', 'else', 'do', 'while', 'for', 'cout', 'cin', '+', '-', '*', '/', '=', '<', '>', '(', ')', '[', ']', '{', '}', '#', ';']
 
 def main(argv):                                         #main with input 
+    tokens = ['include', 'using', 'main', 'if', 'else', 'do', 'while', 'for', 'cout', 'cin', '\+', '-', '\*', '/', '=', '<', '>', '\(', '\)', '\[', '\]', '{', '}', '#', ';']
     infile = ''                                         #declared input file string
     outfile = ''                                        #declared output file string
     try:                                                #try block for argument check 
@@ -21,7 +23,7 @@ def main(argv):                                         #main with input
         print('Option not allowed')                     #print proper format of arguments
         print('program.py -i <infile> -o <outfile>')    #print proper format of arguments
         sys.exit(2)                                     #exit with error code 2 signifying a command line syntax error
-    if 1 > len(argv) > 4:
+    if len(argv) > 4:
         print('Too many arguments')                     #print proper format of arguments
         print('program.py -i <infile> -o <outfile>')    #print proper format of arguments
         sys.exit()
@@ -34,10 +36,62 @@ def main(argv):                                         #main with input
         elif opt in ("-o", "--ofile"):                  #if -o option
             outfile = arg                               #take in it argument
     isfile = open(infile, 'r')                          #open the input file into a stream
-    strs = []                                           #"" for line in isfile]
+    osfile = open(outfile, 'w+')                        #open the output file in append mode
+    stris = []                                           #"" for line in isfile
+    words = []
+    fixes = []
     for line in isfile:
-        strs += line.split()                             #get and parse the line into tokens
-    print(strs)
+        stris += line.split()                             #get and parse the line into tokens
+    for stri in stris:
+        for token in tokens:
+            match = re.search(token, stri)
+            if match is None:
+                continue
+            elif match != None:
+                if token == 'include':
+                    continue
+                elif token == 'using':
+                    continue
+                elif token == 'main':
+                    osfile.write('def main():')
+                elif token == 'if':
+                    osfile.write('if():')
+                elif token == 'else':
+                    osfile.write('else:')
+                elif token == 'while':
+                    osfile.write('while():')
+                elif token == 'for':
+                    osfile.write('for(;;):')
+                elif token == 'cout':
+                    osfile.write('print()')
+                elif token == 'cin':
+                    osfile.write('raw_input()')
+#        if str 
+#            words.append(str)
+#        else:
+#            fixes.append(str)
+#    print(words)
+#    print(fixes)
+
+        #if str == "+"
+        #if str == "-"
+        #if str == "*"
+        #if str == "/"
+        #if str == "="
+        #if str == "<"
+        #if str == ">"
+        #if str == "("
+        #if str == ")"
+        #if str == "["
+        #if str == "]"
+        #if str == "{"
+        #if str == "}"
+        #if str == "#"
+        #if str == ";"
+        #if str == "a-z"
+        #if str == "0-9"
+    
+    #print(strs)
 
 
         #if letter A-z
